@@ -1,0 +1,16 @@
+
+# Parameters for ITLigence
+
+# A: Reduce Dataset Size
+path: "/mnt/c/Users/Johan/Documents/ITligence" 
+data_preview: True 
+
+reduce_size: True 
+goal_size: 2000
+
+make_binary: False
+file_type: "csv"
+
+# B: Create Sentence and / or Token Embeddings
+
+# C: Train Model 
