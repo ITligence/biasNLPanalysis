@@ -6,6 +6,7 @@ import sys
 import re 
 import csv
 from datetime import datetime
+import yaml
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -162,15 +163,15 @@ def main(path,
 
 if __name__ == "__main__": 
 
-    # make user enter these variables thorugh terminal
-    path = "/mnt/c/Users/Johan/Documents/ITligence" 
-    data_preview = True 
-
-    reduce_size = True 
-    goal_size = 2000
-
-    make_binary = False
-    file_type = "csv"
+    opts = yaml.safe_load(open("/mnt/c/Users/Johan/Documents/ITligence/code/python/pipeline/opts.yaml")) 
+    
+    # retrieve input through Yaml
+    path = opts["path"]
+    data_preview = opts["data_preview"]
+    reduce_size =  opts["reduce_size"]
+    goal_size = opts["goal_size"]
+    make_binary = opts["make_binary"]
+    file_type = opts["file_type"]
 
     main(path = path, 
          data_preview = data_preview, 

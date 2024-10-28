@@ -4,6 +4,7 @@ import time
 from transformers import AutoTokenizer, AutoModel
 import np 
 import datetime
+import yaml 
 
 # set device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -123,12 +124,11 @@ def main(data_path,
 
 if __name__ == "__main__": 
     
-    data_path = "/mnt/c/Users/Johan/Documents/ITligence/data/cleaned_data/reduced_ds_2024-10-25_17-30-38.npy"
-    model = "bert-base-uncased"
-    batch_size = 8
-    
-    # choose the type of embeddings: 'sentence', 'token', 'both'
-    embedding_type = "both"
+    opts = yaml.safe_load(open("/mnt/c/Users/Johan/Documents/ITligence/code/python/pipeline/opts.yaml")) 
+    data_path = opts["data_path"]
+    model = opts["model"]
+    batch_size = opts["batch_size"]
+    embedding_type = opts["embedding_type"]
 
     main(data_path = data_path, 
          model = model, 

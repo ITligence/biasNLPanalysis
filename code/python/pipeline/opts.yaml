@@ -12,5 +12,17 @@ make_binary: False
 file_type: "csv"
 
 # B: Create Sentence and / or Token Embeddings
+data_path: "/mnt/c/Users/Johan/Documents/ITligence/data/cleaned_data/reduced_ds_2024-10-25_17-30-38.npy"
+model: "bert-base-uncased"
+batch_size: 8
+    
+embedding_type: "both" # choose embedding type: 'sentence', 'token', 'both'
 
 # C: Train Model 
+n_estimators: 200         # Number of trees
+max_depth: 10             # Maximum depth per tree
+learning_rate: 0.1        # Learning rate
+subsample: 0.8            # Fraction of samples used per tree
+colsample_bynode: 0.8     # Fraction of features used per node
+tree_method: 'gpu_hist'   # Use GPU for training
+random_state: 2024
